@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User 1 WebSocket Client</title>
+</head>
+<body>
+    <h1>User 1 WebSocket Client</h1>
+    <div id="messages"></div>
+
+    <script>
+        // WebSocket connection for User 1
+        var websocketUser1 = new WebSocket("ws://localhost:8765");
+        websocketUser1.onmessage = function(event) {
+            displayMessage(event.data);
+        };
+
+        // Function to display messages on the page
+        function displayMessage(message) {
+            var messagesDiv = document.getElementById("messages");
+            var messageParagraph = document.createElement("p");
+            messageParagraph.textContent = message;
+            messagesDiv.appendChild(messageParagraph);
+        }
+    </script>
+</body>
+</html>

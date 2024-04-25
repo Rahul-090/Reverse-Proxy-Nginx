@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  reverse-proxy:
+    image: nginx:latest
+    container_name: nginx-base
+
+    ports:
+      - 8080:80
+
+  user1_responder:
+    build: user1
+    ports:
+      - "8001:8000"
+
+  user2_responder:
+    build: user2
+    ports:
+      - "8002:8000"
